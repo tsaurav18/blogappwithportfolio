@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%block contents%}
+<body>
+{%for blog in posts%}
+<div class="container">
+
+
+
+<div class="card" >
+  <div class="card-body">
+    <h5 class="card-title">{{blog.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{blog.publish_date}}</h6>
+    <p class="card-text">{{blog.summary}}</p>
+    <a href="{%url 'detail' blog.id%}" class="card-link">....more</a>
+
+  </div>
+</div>
+      </div>
+{% endfor%}
+<div class="container">
+  {%if posts.has_previous%}
+  <a class="btn btn-primary" href="?page=1"role="button">First</a>
+  <a class="btn btn-primary" href="?page={{posts.previous_page_number}}" role="button">Previous</a>
+
+  {%endif%}
+
+  <span>{{posts.number}}</span>
+  <span>of</span>
+  <span>{{posts.paginator.num_pages}}</span>
+
+  {%if posts.has_next%}
+   <a class="btn btn-primary" href="?page={{posts.next_page_number}}"role="button">Next</a>
+  <a class="btn btn-primary" href="?page={{posts.paginator.num_pages}}"role="button">Last</a>
+
+  {%endif%}
+
+</div>
+
+
+
+</body>
+
+{%endblock%}

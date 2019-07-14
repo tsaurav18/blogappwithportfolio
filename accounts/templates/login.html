@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block contents%}
+
+  <div class="container">
+<form action="{%url 'login'%}" method="POST">
+        {% csrf_token%}
+<h1>Login</h1>
+  Username:<br>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="username"placeholder="Enter username">
+    <br>Password:<br>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+<br>
+
+  <button type="submit" class="btn btn-primary">login</button>
+</form>
+</div>
+{%endblock%}
+
